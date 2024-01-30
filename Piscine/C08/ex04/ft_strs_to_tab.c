@@ -55,6 +55,6 @@ int main(void)
     char ac = 3;
     t_stock_str *result = ft_strs_to_tab(ac, av);
     printf("%d", result[1].size);
-//    free(result);
+    free(result);
     return (0);
 }
