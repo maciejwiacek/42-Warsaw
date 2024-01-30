@@ -54,7 +54,7 @@ int main(void)
     char *av[] = {"Abc", "def", "ghi"};
     char ac = 3;
     t_stock_str *result = ft_strs_to_tab(ac, av);
-    printf("%d", result[1].size);
+    printf("%s\n", result[1].str);
     free(result);
     return (0);
 }
