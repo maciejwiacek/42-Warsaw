@@ -1,4 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_BUILD_TYPE=ASAN -DCMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++ -G Ninja -S "/Users/maciejwiacek/Library/Mobile Documents/com~apple~CloudDocs/Piscine/C08" -B "/Users/maciejwiacek/Library/Mobile Documents/com~apple~CloudDocs/Piscine/C08/cmake-build-debug"
--- Configuring done (0.1s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/maciejwiacek/Library/Mobile Documents/com~apple~CloudDocs/Piscine/C08/cmake-build-debug

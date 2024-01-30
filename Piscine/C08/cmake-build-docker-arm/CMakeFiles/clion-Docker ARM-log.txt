@@ -1,6 +1,0 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /tmp/C08 -B /tmp/C08/cmake-build-docker-arm
-CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
-  CMake 3.26 or higher is required.  You are running version 3.25.2
-
-
--- Configuring incomplete, errors occurred!
