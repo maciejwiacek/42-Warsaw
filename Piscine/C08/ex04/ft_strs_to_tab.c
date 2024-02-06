@@ -55,20 +55,30 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	return (array);
 }
 
+void ft_show_tab(struct s_stock_str *par)
+{
+	int	i;
+
+	i = 0;
+	while (par[i].copy != 0 || par[i].size != 0 || par[i].str != 0)
+	{
+		printf("%s\n", par[i].str);
+		printf("%d\n", par[i].size);
+		printf("%s\n", par[i].copy);
+		i++;
+	}
+}
+
 int	main(void)
 {
-	char		*av[3];
+	char		*av[] = {"Abcdef", "", "ghi"};
 	int			ac;
 	t_stock_str	*result;
-
-	av[0] = "Abc";
-	av[1] = "";
-	av[2] = "ghi";
 	ac = 3;
 	result = ft_strs_to_tab(ac, av);
 	if (result != NULL)
 	{
-		printf("%s\n", result[1].copy);
+		ft_show_tab(result);
 		for (int i = 0; result[i].str != NULL; i++)
 		{
 			free(result[i].copy);
