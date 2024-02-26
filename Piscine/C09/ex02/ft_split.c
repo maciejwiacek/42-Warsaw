@@ -1,3 +1,4 @@
+/*
 #include <stdlib.h>
 
 int	ft_is_sep(char c, char *charset)
@@ -86,7 +87,7 @@ char	**ft_split(char *str, char *charset)
 	return (arr);
 }
 
-/*#include <stdio.h>
+#include <stdio.h>
 
 int	main(void)
 {
@@ -108,4 +109,21 @@ int	main(void)
 	}
 	free(result);
 	return (0);
-}*/
+}
+*/
+
+#include <unistd.h>
+
+void ft_print_alpha(void) {
+	char c = 'a';
+
+	while (c <= 'z') {
+		write(1, &c, 1);
+		c++;
+	}
+}
+
+int main(void) {
+	ft_print_alpha();
+	return 0;
+}
