@@ -6,11 +6,13 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:29:40 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/26 22:43:27 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:10:33 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, int len)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
 	char	*tmp;
 	int		i;

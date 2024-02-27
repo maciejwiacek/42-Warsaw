@@ -6,9 +6,11 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:53:58 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/27 15:05:40 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:11:40 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, int n)
 {

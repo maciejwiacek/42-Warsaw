@@ -6,21 +6,11 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:14:25 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/27 15:32:06 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:35:43 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 int	ft_strlcpy(char *dst, const char *src, int size)
 {

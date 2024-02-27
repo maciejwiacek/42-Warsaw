@@ -6,17 +6,20 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:22:18 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/27 15:32:11 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:22:43 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+size_t	ft_strlen(const char *s)
 {
-	char src[] = "Abcdefghijkl";
-	char dst[8] = "";
-	int r = ft_strlcpy(dst, src, 2);
-	printf("%s\n%d", dst, r);
-}
+	int	i;
 
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
+}
