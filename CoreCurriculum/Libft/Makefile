@@ -10,6 +10,9 @@ MY_SOURCES = ft_isalnum.c \
 		 ft_strlen.c \
 		 ft_strncmp.c \
 		 ft_memcpy.c \
+		 ft_memmove.c \
+		 ft_strlcat.c \
+		 ft_strnstr.c \
 		 main.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)

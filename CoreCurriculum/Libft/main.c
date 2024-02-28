@@ -4,10 +4,17 @@
 
 int main()
 {
-	const char src[50] = "https://www.tutorialspoint.com";
-	char dest[50];
-	strcpy(dest,"Heloooo!!");
-	printf("Before memcpy dest = %s\n", dest);
-	ft_memcpy(dest, src, strlen(src)+1);
-	printf("After memcpy dest = %s\n", dest);
+    char destination[20] = "Hello, ";
+    char source[] = "world!";
+
+    // Concatenate source to destination with length checking
+    size_t result = ft_strlcat(destination, source, 20);
+
+    if (result >= 20) {
+        printf("Concatenation resulted in truncation.\n");
+    } else {
+        printf("Concatenated string: %s\n", destination);
+    }
+
+    return 0;
 }
