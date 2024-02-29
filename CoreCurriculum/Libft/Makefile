@@ -23,6 +23,9 @@ MY_SOURCES = ft_isalnum.c \
 		 ft_calloc.c \
 		 ft_strdup.c \
 		 ft_substr.c \
+		 ft_strjoin.c \
+		 ft_strtrim.c \
+		 ft_split.c \
 		 main.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
