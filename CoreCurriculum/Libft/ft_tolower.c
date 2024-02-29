@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 08:30:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 09:17:14 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/26 23:00:26 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/02/26 23:05:43 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <string.h>
-
-int main()
+int	ft_tolower(int c)
 {
-    printf("%d", ft_atoi("     -123a456"));
-
-    return 0;
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
 }

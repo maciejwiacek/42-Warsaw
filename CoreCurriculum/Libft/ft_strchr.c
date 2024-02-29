@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 08:30:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 09:17:14 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/26 23:06:14 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/02/26 23:27:49 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-int main()
+char	*ft_strchr(const char *s, int c)
 {
-    printf("%d", ft_atoi("     -123a456"));
-
-    return 0;
+	while (*s != '\0' && *s != c)
+		s++;
+	if (*s == c)
+		return ((char *)s);
+	return (NULL);
 }

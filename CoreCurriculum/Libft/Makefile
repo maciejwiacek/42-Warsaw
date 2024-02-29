@@ -13,6 +13,11 @@ MY_SOURCES = ft_isalnum.c \
 		 ft_memmove.c \
 		 ft_strlcat.c \
 		 ft_strnstr.c \
+		 ft_atoi.c \
+		 ft_bzero.c \
+		 ft_strchr.c \
+		 ft_tolower.c \
+		 ft_toupper.c \
 		 main.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
