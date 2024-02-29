@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 08:30:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 13:31:44 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/29 13:33:12 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/02/29 13:54:16 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-int main()
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char *str_to_dup = "Abcdef";
-    printf("%s", ft_strdup(str_to_dup));
-    return 0;
+	size_t	length;
+	char	*tmp;
+
+	length = ft_strlen(s);
+	if (length == 0)
+		return (NULL);
+	if (start > length)
+		return ("");
 }

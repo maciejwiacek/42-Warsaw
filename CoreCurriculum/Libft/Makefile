@@ -18,6 +18,11 @@ MY_SOURCES = ft_isalnum.c \
 		 ft_strchr.c \
 		 ft_tolower.c \
 		 ft_toupper.c \
+		 ft_memchr.c \
+		 ft_memcmp.c \
+		 ft_calloc.c \
+		 ft_strdup.c \
+		 ft_substr.c \
 		 main.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)

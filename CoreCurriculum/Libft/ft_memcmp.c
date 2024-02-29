@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 08:30:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 13:31:44 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/29 13:03:00 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/02/29 13:12:26 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-int main()
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    char *str_to_dup = "Abcdef";
-    printf("%s", ft_strdup(str_to_dup));
-    return 0;
+	unsigned char	*tmp_s1;
+	unsigned char	*tmp_s2;
+	size_t			i;
+
+	tmp_s1 = (unsigned char *)s1;
+	tmp_s2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n - 1 && tmp_s1 && tmp_s2 && tmp_s1[i] == tmp_s2[i])
+	{
+		i++;
+	}
+	return (tmp_s1[i] - tmp_s2[i]);
 }

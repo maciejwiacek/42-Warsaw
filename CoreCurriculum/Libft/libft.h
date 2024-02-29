@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:46:01 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 09:18:13 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/02/29 13:33:32 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,10 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 void	ft_bzero(void *s, int n);
 int		ft_atoi(const char *str);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

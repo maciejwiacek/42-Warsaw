@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 08:30:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 13:31:44 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/29 12:44:08 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/02/29 12:57:31 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-int main()
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    char *str_to_dup = "Abcdef";
-    printf("%s", ft_strdup(str_to_dup));
-    return 0;
+	unsigned char	*tmp_s;
+	unsigned char	tmp_c;
+	size_t			i;
+
+	tmp_s = (unsigned char *) s;
+	tmp_c = c;
+	i = 0;
+	while (i < n)
+	{
+		if (tmp_s[i] == tmp_c)
+			return ((void *)(s + i));
+		i++;
+	}
+	return (NULL);
 }

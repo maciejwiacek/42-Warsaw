@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 08:30:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 13:31:44 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/29 13:13:37 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/02/29 13:23:00 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-int main()
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    char *str_to_dup = "Abcdef";
-    printf("%s", ft_strdup(str_to_dup));
-    return 0;
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)malloc(size * nmemb);
+	i = 0;
+	if (ptr == NULL)
+		return (NULL);
+	while (i < nmemb * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }
