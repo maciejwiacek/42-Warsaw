@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:51 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/01 18:13:38 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/01 18:37:40 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,37 @@ static int	num_count(int n)
 	return (counter);
 }
 
+static void	ft_num_handler(char *res, int str_len, int n, int is_negative)
+{
+	if (n == -2147483648)
+	{
+		is_negative = 1;
+		res[str_len] = -(n % 10) + '0';
+		n = -(n / 10);
+		str_len--;
+	}
+	if (n < 0)
+	{
+		is_negative = 1;
+		n = -n;
+	}
+	while (n > 0)
+	{
+		res[str_len] = (n % 10) + '0';
+		n = n / 10;
+		str_len--;
+	}
+	if (is_negative)
+		res[0] = '-';
+}
+
 char	*ft_itoa(int n)
 {
 	int		str_len;
 	char	*res;
-	int 	isNegative;
+	int		is_negative;
 
-	isNegative = 0;
+	is_negative = 0;
 	str_len = num_count(n);
 	res = (char *)malloc(sizeof(int) * str_len);
 	if (res == NULL)
@@ -53,25 +77,6 @@ char	*ft_itoa(int n)
 		res[1] = '\0';
 		return (res);
 	}
-	if (n == -2147483648)
-	{
-		isNegative = 1;
-		res[str_len] = -(n % 10) + '0';
-		n = -(n / 10);
-		str_len--;
-	}
-	if (n < 0)
-	{
-		isNegative = 1;
-		n = -n;
-	}
-	while (n > 0)
-	{
-		res[str_len] = (n % 10) + '0';
-		n = n / 10;
-		str_len--;
-	}
-	if (isNegative)
-		res[0] = '-';
-	return res;
+	ft_num_handler(res, str_len, n, is_negative);
+	return (res);
 }

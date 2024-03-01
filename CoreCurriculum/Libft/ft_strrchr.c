@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:30:05 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/01 14:52:03 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/01 18:18:30 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t s_len;
+	size_t	s_len;
 	char	*str_cpy;
 
 	s_len = ft_strlen(s);
