@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:51 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/01 18:37:40 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/04 13:21:43 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	ft_num_handler(char *res, int str_len, int n, int is_negative)
 		n = n / 10;
 		str_len--;
 	}
-	if (is_negative)
+	if (is_negative == 1)
 		res[0] = '-';
 }
 

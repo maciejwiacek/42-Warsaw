@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:56:29 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/28 15:58:40 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/04 17:19:48 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	tmp[100000];
 	char	*ptr_dest;
 	char	*ptr_src;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	ptr_dest = (char *)dest;
-	ptr_src = (char *)src;
-	ft_strlcpy(tmp, ptr_src, n + 1);
-	while (n > 0)
+	ptr_dest = (char *) dest;
+	ptr_src = (char *) src;
+	if (ptr_dest > ptr_src)
 	{
-		ptr_dest[i] = tmp[i];
-		i++;
-		n--;
+		while (n-- > 0)
+			ptr_dest[n] = ptr_src[n];
+	}
+	else
+	{
+		while (i < n)
+		{
+			ptr_dest[i] = ptr_src[i];
+			i++;
+		}
 	}
 	return (dest);
 }
