@@ -1,0 +1,12 @@
+# Ignore .DS_Store files globally
+.DS_Store
+
+# Ignore .DS_Store within CoreCurriculum directory
+CoreCurriculum/.DS_Store
+
+# Ignore libft-war-machine within CoreCurriculum/Libft directory
+CoreCurriculum/Libft/libft-war-machine
+
+# Ignore .idea directory within CoreCurriculum
+CoreCurriculum/.idea/
+
