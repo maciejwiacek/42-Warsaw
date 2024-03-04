@@ -6,53 +6,116 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:15 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/04 17:16:52 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/04 19:47:57 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-	int		main(int argc, const char *argv[])
-	{
-		char	src[] = "lorem ipsum dolor sit amet";
-		char	*dest;
-		int		arg;
+void	ft_print_result(char const *s)
+{
+	int		len;
 
-		dest = src + 1;
-		alarm(5);
-		if (argc == 1)
-			return (0);
-		else if ((arg = atoi(argv[1])) == 1)
-		{
-			if (dest != ft_memmove(dest, "consectetur", 5))
-				write(1, "dest's adress was not returned\n", 31);
-			write(1, dest, 22);
-		}
-		else if (arg == 2)
-		{
-			if (dest != ft_memmove(dest, "con\0sec\0\0te\0tur", 10))
-				write(1, "dest's adress was not returned\n", 31);
-			write(1, dest, 22);
-		}
-		else if (arg == 3)
-		{
-			if (dest != ft_memmove(dest, src, 8))
-				write(1, "dest's adress was not returned\n", 31);
-			write(1, dest, 22);
-		}
-		else if (arg == 4)
-		{
-			if (src != memmove(src, dest, 8))
-				write(1, "dest's adress was not returned\n", 31);
-			write(1, dest, 22);
-		}
-		else if (arg == 5)
-		{
-			if (src != ft_memmove(src, dest, 0))
-				write(1, "dest's adress was not returned\n", 31);
-			write(1, dest, 22);
-		}
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
+int		main(int argc, const char *argv[])
+{
+	char		*str;
+	char		str2[] = "bonjour";
+	int			arg;
+
+	alarm(5);
+	if (argc == 1)
 		return (0);
+	else if ((arg = atoi(argv[1])) == 1)
+	{
+		if (!(str = ft_strrchr(str2, 'b')))
+			ft_print_result("NULL");
+		else
+		{
+			ft_print_result(str);
+			if (str != str2)
+				ft_print_result("\nReturn value is false");
+		}
 	}
+	else if (arg == 2)
+	{
+		if (!(str = ft_strrchr(str2, 'o')))
+			ft_print_result("NULL");
+		else
+		{
+			ft_print_result(str);
+			if (str != str2 + 4)
+				ft_print_result("\nReturn value is false");
+		}
+	}
+	else if (arg == 3)
+	{
+		char	str3[]= "bonjourno";
+		if (!(str = ft_strrchr(str3, 'o')))
+			ft_print_result("NULL");
+		else
+		{
+			ft_print_result(str);
+			if (str != str3 + 8)
+				ft_print_result("\nReturn value is false");
+		}
+	}
+	else if (arg == 4)
+	{
+		if (!(str = ft_strrchr(str2, 'j')))
+			ft_print_result("NULL");
+		else
+		{
+			ft_print_result(str);
+			if (str != str2 + 3)
+				ft_print_result("\nReturn value is false");
+		}
+	}
+	else if (arg == 5)
+	{
+		if (!(str = ft_strrchr(str2, 's')))
+			ft_print_result("NULL");
+		else
+			ft_print_result(str);
+	}
+	else if (arg == 6)
+	{
+		if (!(str = ft_strrchr(str2, '\0')))
+			ft_print_result("NULL");
+		else
+		{
+			ft_print_result(str);
+			if (str != str2 + 7)
+				ft_print_result("\nReturn value is false");
+		}
+	}
+	else if (arg == 7)
+	{
+		char	str3[] = "";
+		if (!(str = ft_strrchr(str3, '\0')))
+			ft_print_result("NULL");
+		else
+		{
+			ft_print_result(str);
+			if (str != str3)
+				ft_print_result("\nReturn value is false");
+		}
+	}
+	else if (arg == 8)
+	{
+		if (!(str = ft_strrchr(str2 + 2, 'b')))
+			ft_print_result("NULL");
+		else
+			ft_print_result(str);
+	}
+	return (0);
+}
+

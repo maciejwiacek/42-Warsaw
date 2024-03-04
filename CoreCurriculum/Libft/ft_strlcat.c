@@ -6,20 +6,18 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:59:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/04 14:09:28 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/04 19:12:21 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t dst_size;
-	size_t src_size;
-	int	i;
-	int	j;
+	size_t	dst_size;
+	size_t	src_size;
+	int		i;
+	int		j;
 
 	dst_size = ft_strlen(dst);
 	src_size = ft_strlen(src);
