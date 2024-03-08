@@ -6,73 +6,39 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:39:02 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 18:42:41 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/07 23:38:46 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_get_start_index(char const *s1, char const *set)
+static int	ft_to_trim(char c, const char *set)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (s1[i] != '\0')
+	while (*set)
 	{
-		while (s1[i] != set[j] && set[j] != '\0')
-		{
-			j++;
-		}
-		if (s1[i] != set[j])
-			return (i);
-		i++;
-		j = 0;
+		if (c == *set)
+			return (1);
+		set++;
 	}
-	return (i);
+	return (0);
 }
 
-static int	ft_get_end_index(char const *s1, char const *set)
-{
-	int	i;
-	int	j;
-
-	i = ft_strlen(s1);
-	while (s1[i - 1] != '\0')
-	{
-		while (s1[i] != set[j] && set[j] != '\0')
-		{
-			j++;
-		}
-		if (s1[i] != set[j])
-			return (i);
-		i--;
-		j = 0;
-	}
-	return (i);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	start_index;
 	size_t	end_index;
-	size_t	i;
-	char	*tmp;
+	char	*trimmed;
 
-	start_index = ft_get_start_index(s1, set);
-	end_index = ft_get_end_index(s1, set);
-	i = 0;
-	if (end_index - start_index >= ft_strlen(s1))
-		return ("");
-	tmp = (char *)malloc(sizeof(char) * (end_index - start_index + 1));
-	if (tmp == NULL)
+	if (!s1 || !set)
 		return (NULL);
-	while (start_index < end_index + 1)
-	{
-		tmp[i] = s1[start_index];
-		i++;
+	start_index = 0;
+	end_index = ft_strlen(s1);
+	while (ft_to_trim(s1[start_index], set))
 		start_index++;
-	}
-	tmp[i] = '\0';
-	return (tmp);
+	if (start_index == end_index)
+		return (ft_strdup(""));
+	while (ft_to_trim(s1[end_index - 1], set))
+		end_index--;
+	trimmed = ft_substr(s1, start_index, end_index - start_index);
+	return (trimmed);
 }

@@ -40,12 +40,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-.PHONY: all clean fclean re
-
 all: $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
@@ -57,3 +52,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
