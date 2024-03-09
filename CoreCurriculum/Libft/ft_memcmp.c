@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:03:00 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/04 17:31:57 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/08 10:46:30 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	tmp_s2 = (unsigned char *)s2;
 	i = 0;
 	while (i < n - 1 && tmp_s1 && tmp_s2 && tmp_s1[i] == tmp_s2[i])
-	{
 		i++;
-	}
 	return (tmp_s1[i] - tmp_s2[i]);
 }
