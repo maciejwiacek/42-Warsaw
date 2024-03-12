@@ -6,77 +6,49 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:51 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/04 13:21:43 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/12 12:44:55 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	num_count(int n)
+static int	ft_numlen(int n)
 {
-	size_t	i;
-	size_t	counter;
+	int	length;
 
-	i = 1;
-	counter = 1;
-	if (n == -2147483648)
-		return (11);
-	if (n < 0)
+	length = 0;
+	if (n <= 0)
+		length++;
+	while (n != 0)
 	{
-		n *= -1;
-		counter++;
+		n /= 10;
+		length++;
 	}
-	while (n / (10 * i) > 0)
-	{
-		i *= 10;
-		counter++;
-	}
-	return (counter);
-}
-
-static void	ft_num_handler(char *res, int str_len, int n, int is_negative)
-{
-	if (n == -2147483648)
-	{
-		is_negative = 1;
-		res[str_len] = -(n % 10) + '0';
-		n = -(n / 10);
-		str_len--;
-	}
-	if (n < 0)
-	{
-		is_negative = 1;
-		n = -n;
-	}
-	while (n > 0)
-	{
-		res[str_len] = (n % 10) + '0';
-		n = n / 10;
-		str_len--;
-	}
-	if (is_negative == 1)
-		res[0] = '-';
+	return (length);
 }
 
 char	*ft_itoa(int n)
 {
-	int		str_len;
-	char	*res;
-	int		is_negative;
+	char			*result;
+	unsigned int	nbr;
+	int				num_length;
+	int				is_negative;
 
-	is_negative = 0;
-	str_len = num_count(n);
-	res = (char *)malloc(sizeof(int) * str_len);
-	if (res == NULL)
+	num_length = ft_numlen(n);
+	is_negative = n < 0;
+	nbr = n;
+	if (n < 0)
+		nbr *= -1;
+	result = (char *)malloc(sizeof(char) * (num_length + 1));
+	if (result == NULL)
 		return (NULL);
-	res[str_len] = '\0';
-	str_len--;
-	if (n == 0)
+	result[num_length] = '\0';
+	while (num_length-- >= 0)
 	{
-		res[0] = '0';
-		res[1] = '\0';
-		return (res);
+		result[num_length] = (nbr % 10) + '0';
+		nbr /= 10;
 	}
-	ft_num_handler(res, str_len, n, is_negative);
-	return (res);
+	if (is_negative == 1)
+		result[0] = '-';
+	return (result);
 }

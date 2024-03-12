@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:23:38 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/08 11:16:13 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/12 12:05:40 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t		j;
 
 	i = 0;
+	if ((!big || !little) && len == 0)
+		return (NULL);
 	if (little[i] == '\0')
 		return ((char *)big);
 	while (big[i] != '\0' && i < len)

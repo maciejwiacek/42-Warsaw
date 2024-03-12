@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:59:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/04 20:03:06 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/12 00:15:58 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
-	size_t	src_len;
 	size_t	total_len;
 	size_t	i;
 	size_t	j;
 
 	dst_len = 0;
-	src_len = 0;
+	if ((!dst && !src) || size == 0)
+		return (0);
 	while (dst[dst_len] != '\0' && dst_len < size)
 		dst_len++;
-	while (src[src_len] != '\0')
-		src_len++;
-	total_len = dst_len + src_len;
+	total_len = dst_len + ft_strlen(src);
 	if (size <= dst_len)
 		return (total_len);
 	i = dst_len;

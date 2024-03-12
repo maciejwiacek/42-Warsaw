@@ -6,11 +6,22 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:33:12 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/29 18:37:55 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/12 13:26:32 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*ft_handle_wrong_start(void)
+{
+	char	*tmp;
+
+	tmp = (char *)malloc(sizeof(char) * 1);
+	if (tmp == NULL)
+		return (NULL);
+	tmp[0] = '\0';
+	return (tmp);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -18,22 +29,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*tmp;
 
+	if (s == NULL)
+		return (NULL);
 	strlen = ft_strlen(s);
 	i = 0;
-	if (strlen == 0)
-		return (NULL);
-	else if (strlen < start)
-		return ("");
-	else if (strlen - start < start + len)
+	if (start >= strlen)
+		return (ft_handle_wrong_start());
+	if (strlen - start < len)
 		len = strlen - start;
 	tmp = (char *)malloc(sizeof(char) * (len + 1));
 	if (tmp == NULL)
 		return (NULL);
 	while (len > i)
 	{
-		tmp[i] = s[start];
+		tmp[i] = s[start + i];
 		i++;
-		start++;
 	}
 	tmp[i] = '\0';
 	return (tmp);

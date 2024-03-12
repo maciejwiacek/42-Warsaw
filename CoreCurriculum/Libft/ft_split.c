@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:50:03 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/06 15:27:37 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/12 13:03:13 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	arr = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (arr == NULL)
 		return (NULL);
@@ -77,12 +79,10 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s != '\0')
 		{
-			arr[j++] = ft_copy_word((char *)s, c);
+			arr[j] = ft_copy_word((char *)s, c);
 			if (arr[j] == NULL)
-			{
 				ft_free_space(arr, j - 1);
-				return (NULL);
-			}
+			j++;
 		}
 		while (*s != '\0' && *s != c)
 			s++;
@@ -90,35 +90,3 @@ char	**ft_split(char const *s, char c)
 	arr[j] = NULL;
 	return (arr);
 }
-
-/*char	**ft_split(char const *s, char c)
-{
-	char	**arr;
-	int		i;
-	int		j;
-
-	arr = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (arr == NULL)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] != '\0' && s[i] == c)
-			i++;
-		if (s[i] != '\0')
-		{
-			arr[j] = ft_copy_word((char *)s + i, c);
-			if (arr[j] == NULL)
-			{
-				ft_free_space(arr, j);
-				return (NULL);
-			}
-			j++;
-		}
-		while (s[i] != '\0' && s[i] == c)
-			i++;
-	}
-	arr[j] = 0;
-	return (arr);
-}*/
