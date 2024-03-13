@@ -33,7 +33,19 @@ SRCS = ft_isalnum.c \
        ft_putnbr_fd.c \
        ft_itoa.c
 
+BONSRCS =	ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c
+
+
 OBJS = $(SRCS:.c=.o)
+BONOBJS = $(BONSRCS:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -45,12 +57,15 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
+bonus: $(OBJS) $(BONOBJS)
+	ar rcs $(NAME) $?
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONOBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

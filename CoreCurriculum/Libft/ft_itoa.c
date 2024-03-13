@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:51 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/12 12:44:55 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/13 12:04:12 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_itoa(int n)
 	if (result == NULL)
 		return (NULL);
 	result[num_length] = '\0';
-	while (num_length-- >= 0)
+	while (num_length-- > 0)
 	{
 		result[num_length] = (nbr % 10) + '0';
 		nbr /= 10;
