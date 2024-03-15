@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:26:49 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/12 19:13:30 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/15 10:32:05 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,4 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 		return ;
 	(del)(lst->content);
 	free(lst);
-	lst = NULL;
 }
