@@ -3,6 +3,11 @@ LIBFT = libft/
 
 SRCS = src/ft_printf.c \
 		src/ft_print_char.c \
+		src/ft_print_str.c \
+		src/ft_print_int.c \
+		src/ft_print_unsigned_int.c \
+		src/ft_print_hex.c \
+		src/ft_print_pointer.c
 
 
 OBJS = $(SRCS:.c=.o)

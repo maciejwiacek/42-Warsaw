@@ -6,13 +6,13 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 09:33:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/16 09:53:28 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/16 17:28:07 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/libft.h"
 
-int	ft_print_char(char	c)
+int	ft_print_char(char c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);
