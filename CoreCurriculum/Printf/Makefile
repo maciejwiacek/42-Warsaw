@@ -2,6 +2,8 @@ NAME = libftprintf.a
 LIBFT = libft/
 
 SRCS = src/ft_printf.c \
+		src/ft_print_char.c \
+
 
 OBJS = $(SRCS:.c=.o)
 

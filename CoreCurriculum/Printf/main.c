@@ -6,13 +6,13 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:14:12 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/15 10:09:33 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/16 09:50:52 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/printf.h"
-#include <stdio.h>
 
 int main()
 {
+	ft_printf("Test %c %c %c", 'a', 'b', 'c');
 }
