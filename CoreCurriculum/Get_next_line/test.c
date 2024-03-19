@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 23:03:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/19 23:53:03 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/03/19 23:22:28 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/03/19 23:54:48 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@
 static char	*fill_stash(int fd, char *stash, char *buf)
 {
 	ssize_t	bytes_read;
+	char	*tmp;
 
-	bytes_read = 1;
-	while (bytes_read > 0)
+	bytes_read = read(fd, 0, 0);
+	while (bytes_read > -1)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (NULL);
-		if (bytes_read == 0)
-			return (NULL);
+		buf[bytes_read] = '\0';
 		if (!stash)
 			stash = ft_strdup("");
-		stash = ft_strjoin(stash, buf);
+		tmp = stash;
+		stash = ft_strjoin(tmp, buf);
 		if (ft_strchr(buf, '\n'))
-			return (stash);
+			break;
 	}
 	return (stash);
 }
@@ -45,36 +46,23 @@ static char	*create_line(char *stash)
 		i++;
 	if (stash[i] == '\0')
 		return (NULL);
-	rest_of_line = ft_substr(stash, i + 1, ft_strlen(stash + i + 1));
+	rest_of_line = ft_substr(stash, i + 1, ft_strlen(stash) - i - 1);
 	if (!rest_of_line)
 		return (NULL);
 	stash[i] = '\0';
 	return (rest_of_line);
 }
 
-char	*get_next_line(int fd)
-{
-	static char	*stash;
-	char		*line;
-	char		*buf;
-
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	line = fill_stash(fd, stash, buf);
-	free(buf);
-	if (!line)
-		return (NULL);
-	stash = create_line(line);
-	return (line);
-}
-
 int main()
 {
 	int fd = open("test.txt", O_RDONLY);
-	int i = 1;
+	static char *stash = NULL;
+	char *buf;
 	char *line;
-	while (i < 6)
-	{
-		line = get_next_line(fd);
-		printf("Line %d: %s\n", i++, line);
-	}
+	buf = malloc(sizeof(char) * (BUFFER_SIZE));
+	line = fill_stash(fd, stash, buf);
+	stash = create_line(line);
+	line = fill_stash(fd, stash, buf);
+	stash = create_line(line);
+	printf("%s", line);
 }
