@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:09:49 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/15 14:49:10 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/16 16:25:24 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,13 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-void	ft_del(void *content)
-{
-	free(content);
-}
+#include "libft.h"
 
 int main()
 {
-	t_list	*lst = ft_lstnew("One");
-	ft_lstadd_back(&lst, ft_lstnew("Two"));
-	ft_lstadd_back(&lst, ft_lstnew("Three"));
-	printf("%s", (char *)lst->content);
-	ft_lstclear(&lst, ft_del);
-	while (lst)
-	{
-		printf("%s ", (char *)lst->content);
-		lst = lst->next;
-	}
+	char src[] = "Warsaw";
+	char dest[] = "42 ";
+	int nb = 5;
+	ft_strlcat(dest, src, nb);
+	printf("%s, %s\n", dest, src);
 }

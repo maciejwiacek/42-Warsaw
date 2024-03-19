@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 23:04:07 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/18 22:21:25 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/03/17 15:12:25 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/03/17 15:12:58 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-#endif
+#include "headers/printf.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-
-size_t		ft_strlen(const char *s);
-char		*ft_strchr(char *s, char c);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		*ft_strdup(const char *s);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*get_next_line(int fd);
-
-#endif
+int main()
+{
+	ft_printf("%c%c%c", 'a', 'b', 'c');
+}

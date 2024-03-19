@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 23:04:07 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/18 22:21:25 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/03/19 11:39:20 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/03/19 11:42:05 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-#endif
+#include <stdio.h>
 
-#include <unistd.h>
-#include <stdlib.h>
+void add_one(int c)
+{
+	c = 11;
+}
 
-size_t		ft_strlen(const char *s);
-char		*ft_strchr(char *s, char c);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		*ft_strdup(const char *s);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*get_next_line(int fd);
-
-#endif
+int main()
+{
+	int c = 10;
+	int *p_c = &c;
+	add_one(c);
+	printf("%d", c);
+}
