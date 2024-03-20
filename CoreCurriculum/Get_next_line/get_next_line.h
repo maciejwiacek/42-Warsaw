@@ -6,18 +6,18 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:04:07 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/19 23:20:06 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/20 11:40:04 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 size_t		ft_strlen(const char *s);
 char		*ft_strchr(char *s, char c);
