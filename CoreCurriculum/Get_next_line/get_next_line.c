@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:03:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/19 23:53:03 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/20 08:54:43 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*fill_stash(int fd, char *stash, char *buf)
 		if (bytes_read < 0)
 			return (NULL);
 		if (bytes_read == 0)
-			return (NULL);
+			return (ft_strdup(""));
 		if (!stash)
 			stash = ft_strdup("");
 		stash = ft_strjoin(stash, buf);
@@ -59,6 +59,12 @@ char	*get_next_line(int fd)
 	char		*buf;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (ft_strchr(stash, '\n'))
+	{
+		line = ft_strdup(stash);
+		stash = create_line(line);
+		return (line);
+	}
 	line = fill_stash(fd, stash, buf);
 	free(buf);
 	if (!line)
