@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:03:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/20 15:37:29 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/20 16:15:08 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ static char	*fill_stash(int fd, char *stash, char *buf)
 		if (!stash)
 			stash = ft_strdup("");
 		stash = ft_strjoin(stash, buf);
+		if (!stash)
+		{
+			free(stash);
+			return (NULL);
+		}
 		if (ft_strchr(buf, '\n'))
 		{
 			free(buf);
@@ -51,7 +56,10 @@ static char	*create_line(char *stash)
 		return (NULL);
 	rest_of_line = ft_substr(stash, i + 1, ft_strlen(stash + i + 1));
 	if (!rest_of_line)
+	{
+		free(stash);
 		return (NULL);
+	}
 	stash[i] = '\0';
 	return (rest_of_line);
 }
@@ -63,6 +71,8 @@ char	*get_next_line(int fd)
 	char		*buf;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL);
 	if (stash)
 	{
 		if (ft_strchr(stash, '\n'))
@@ -74,8 +84,16 @@ char	*get_next_line(int fd)
 	}
 	line = fill_stash(fd, stash, buf);
 	if (!line)
+	{
+		free(line);
 		return (NULL);
+	}
 	stash = create_line(line);
+	if (!stash)
+	{
+		free(stash);
+		return (NULL);
+	}
 	return (line);
 }
 
@@ -88,6 +106,7 @@ int main()
 	{
 		line = get_next_line(fd);
 		printf("Line %d: %s\n", i + 1, line);
+		free(line);
 		i++;
 	}
 	free(line);

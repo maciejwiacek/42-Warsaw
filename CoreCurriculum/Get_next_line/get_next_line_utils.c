@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:03:57 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/20 11:40:46 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/20 16:16:41 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	*ft_strdup(const char *s)
 	char	*ptr;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	ptr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (ptr == NULL)
 		return (NULL);
