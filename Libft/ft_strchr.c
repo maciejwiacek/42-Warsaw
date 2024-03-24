@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 23:06:14 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/02/26 23:27:49 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/24 14:31:00 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != c)
+	while (*s != '\0' && *s != (char)c)
 		s++;
-	if (*s == c)
+	if (*s == (char)c)
 		return ((char *)s);
 	return (NULL);
 }
