@@ -14,12 +14,10 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-makelibft:
+$(NAME): $(OBJS)
 	make -C $(LIBFT) bonus
 	cp $(LIBFT)libft.a .
 	mv libft.a $(NAME)
-
-$(NAME): $(OBJS) | makelibft
 	ar rcs $(NAME) $(OBJS)
 
 clean:
@@ -32,4 +30,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all makelibft clean fclean re
+.PHONY: all clean fclean re
