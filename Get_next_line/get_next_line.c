@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:03:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/24 13:26:03 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/24 13:40:36 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ static char	*create_line(char *line)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash = NULL;
 	char		*line;
 	char		*buf;
 
+	if (fd < 0)
+		return (NULL);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
-		return (NULL);
-	if (fd < 0)
 		return (NULL);
 	line = fill_stash(fd, stash, buf);
 	free(buf);
