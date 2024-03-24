@@ -6,13 +6,11 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:03:46 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/24 13:03:04 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/24 13:26:03 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <fcntl.h>
 
 static char	*fill_stash(int fd, char *stash, char *buf)
 {
@@ -39,20 +37,20 @@ static char	*fill_stash(int fd, char *stash, char *buf)
 	return (stash);
 }
 
-static char	*create_line(char *stash)
+static char	*create_line(char *line)
 {
 	char	*rest_of_line;
 	size_t	i;
 
 	i = 0;
-	while (stash[i] != '\n' && stash[i] != '\0')
+	while (line[i] != '\n' && line[i] != '\0')
 		i++;
-	if (stash[i] == 0 || stash[i + 1] == 0)
+	if (line[i] == 0 || line[i + 1] == 0)
 		return (NULL);
-	rest_of_line = ft_substr(stash, i + 1, ft_strlen(stash) - i);
+	rest_of_line = ft_substr(line, i + 1, ft_strlen(line + i + 1));
 	if (!rest_of_line)
 		return (NULL);
-	stash[i + 1] = '\0';
+	line[i + 1] = '\0';
 	return (rest_of_line);
 }
 
@@ -65,7 +63,7 @@ char	*get_next_line(int fd)
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
 	line = fill_stash(fd, stash, buf);
 	free(buf);
@@ -74,17 +72,3 @@ char	*get_next_line(int fd)
 	stash = create_line(line);
 	return (line);
 }
-
-//int main()
-//{
-//	int fd = open("test.txt", O_RDONLY);
-//	int i = 0;
-//	char *line;
-//	while ((line = get_next_line(fd)) != NULL)
-//	{
-//		printf("Line %d: %s\n", i + 1, line);
-//		free(line);
-//		i++;
-//	}
-//	close(fd);
-//}
