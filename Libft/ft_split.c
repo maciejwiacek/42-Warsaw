@@ -6,87 +6,93 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:50:03 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/12 13:03:13 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/03/26 14:53:39 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(char const *s, char c)
+int	safe_malloc(char **token_v, int position, size_t buffer)
 {
-	int	counter;
+	int		i;
 
-	counter = 1;
-	while (*s != '\0')
+	i = 0;
+	token_v[position] = malloc(buffer);
+	if (NULL == token_v[position])
 	{
-		if (*s == c)
-			counter++;
-		s++;
+		while (i < position)
+			free(token_v[i++]);
+		free(token_v);
+		return (1);
 	}
-	return (counter);
+	return (0);
 }
 
-static int	ft_count_to_sep(char *s, char c)
+int	fill(char **token_v, char const *s, char delimeter)
 {
-	int	counter;
+	size_t	len;
+	int		i;
 
-	counter = 0;
-	while (s[counter] != c && s[counter] != '\0')
-		counter++;
-	return (counter);
-}
-
-static char	*ft_copy_word(char *s, char c)
-{
-	char	*word;
-	char	*start_word;
-
-	word = (char *)malloc(sizeof(char) * (ft_count_to_sep(s, c) + 1));
-	if (word == NULL)
-		return (NULL);
-	start_word = word;
-	while (*s != '\0' && *s != c)
+	i = 0;
+	while (*s)
 	{
-		*word = *s;
-		word++;
-		s++;
+		len = 0;
+		while (*s == delimeter && *s)
+			++s;
+		while (*s != delimeter && *s)
+		{
+			++len;
+			++s;
+		}
+		if (len)
+		{
+			if (safe_malloc(token_v, i, len + 1))
+				return (1);
+			ft_strlcpy(token_v[i], s - len, len + 1);
+		}
+		++i;
 	}
-	*word = '\0';
-	return (start_word);
+	return (0);
 }
 
-static void	ft_free_space(char **arr, int j)
+size_t	count_tokens(char const *s, char delimeter)
 {
-	while (j-- >= 0)
-		free (arr[j]);
-	free (arr);
+	size_t	tokens;
+	int		inside_token;
+
+	tokens = 0;
+	while (*s)
+	{
+		inside_token = 0;
+		while (*s == delimeter && *s)
+			++s;
+		while (*s != delimeter && *s)
+		{
+			if (!inside_token)
+			{
+				++tokens;
+				inside_token = 42;
+			}
+			++s;
+		}
+	}
+	return (tokens);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		j;
+	size_t	tokens;
+	char	**token_v;
 
-	if (!s)
+	if (NULL == s)
 		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (arr == NULL)
+	tokens = 0;
+	tokens = count_tokens(s, c);
+	token_v = malloc((tokens + 1) * sizeof(char *));
+	if (NULL == token_v)
 		return (NULL);
-	j = 0;
-	while (*s != '\0')
-	{
-		while (*s != '\0' && *s == c)
-			s++;
-		if (*s != '\0')
-		{
-			arr[j] = ft_copy_word((char *)s, c);
-			if (arr[j] == NULL)
-				ft_free_space(arr, j - 1);
-			j++;
-		}
-		while (*s != '\0' && *s != c)
-			s++;
-	}
-	arr[j] = NULL;
-	return (arr);
+	token_v[tokens] = NULL;
+	if (fill(token_v, s, c))
+		return (NULL);
+	return (token_v);
 }
