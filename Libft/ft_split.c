@@ -6,93 +6,93 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:50:03 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/26 14:53:39 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/07 10:57:40 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	safe_malloc(char **token_v, int position, size_t buffer)
+int malloc_handler(char **result, int pos, int buffer)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	token_v[position] = malloc(buffer);
-	if (NULL == token_v[position])
+	result[pos] = malloc(buffer);
+	if (result[pos] == NULL)
 	{
-		while (i < position)
-			free(token_v[i++]);
-		free(token_v);
+		while (i < pos)
+			free(result[i++]);
+		free(result);
 		return (1);
 	}
 	return (0);
 }
 
-int	fill(char **token_v, char const *s, char delimeter)
+int copy_words(char **result, char const *s, char c)
 {
 	size_t	len;
-	int		i;
+	int 	i;
 
 	i = 0;
 	while (*s)
 	{
 		len = 0;
-		while (*s == delimeter && *s)
-			++s;
-		while (*s != delimeter && *s)
+		while (*s == c && *s)
+			s++;
+		while (*s != c && *s)
 		{
-			++len;
-			++s;
+			len++;
+			s++;
 		}
 		if (len)
 		{
-			if (safe_malloc(token_v, i, len + 1))
+			if (malloc_handler(result, i, len + 1))
 				return (1);
-			ft_strlcpy(token_v[i], s - len, len + 1);
+			ft_strlcpy(result[i], s - len, len + 1);
 		}
-		++i;
+		i++;
 	}
 	return (0);
 }
 
-size_t	count_tokens(char const *s, char delimeter)
+size_t	count_words(char const *s, char c)
 {
-	size_t	tokens;
-	int		inside_token;
+	size_t	words;
+	int		new_word;
 
-	tokens = 0;
+	words = 0;
 	while (*s)
 	{
-		inside_token = 0;
-		while (*s == delimeter && *s)
-			++s;
-		while (*s != delimeter && *s)
+		new_word = 0;
+		while (*s == c && *s)
+			s++;
+		while (*s != c && *s)
 		{
-			if (!inside_token)
+			if (new_word == 0)
 			{
-				++tokens;
-				inside_token = 42;
+				words++;
+				new_word = 1;
 			}
-			++s;
+			s++;
 		}
 	}
-	return (tokens);
+	return (words);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	tokens;
-	char	**token_v;
+	size_t	words;
+	char	**result;
 
-	if (NULL == s)
+	if (!s)
 		return (NULL);
-	tokens = 0;
-	tokens = count_tokens(s, c);
-	token_v = malloc((tokens + 1) * sizeof(char *));
-	if (NULL == token_v)
+	words = 0;
+	words = count_words(s, c);
+	result = malloc((words + 1) * sizeof(char *));
+	if (!result)
 		return (NULL);
-	token_v[tokens] = NULL;
-	if (fill(token_v, s, c))
+	result[words] = NULL;
+	if (copy_words(result, s, c))
 		return (NULL);
-	return (token_v);
+	return (result);
 }
