@@ -6,30 +6,30 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:41:22 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/24 16:19:25 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/11 23:57:06 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/printf.h"
 #include "../headers/libft.h"
 
-int	ft_handle_placeholders(va_list args, char c)
+int	ft_handle_placeholders(va_list *args, char c)
 {
 	size_t	length;
 
 	length = 0;
 	if (c == 'c')
-		length += (ft_print_char(va_arg(args, int)));
+		length += (ft_print_char(va_arg(*args, int)));
 	if (c == 's')
-		length += (ft_print_str(va_arg(args, char *)));
+		length += (ft_print_str(va_arg(*args, char *)));
 	if (c == 'd' || c == 'i')
-		length += (ft_print_int(va_arg(args, int)));
+		length += (ft_print_int(va_arg(*args, int)));
 	if (c == 'u')
-		length += (ft_print_unsigned_int(va_arg(args, unsigned int)));
+		length += (ft_print_unsigned_int(va_arg(*args, unsigned int)));
 	if (c == 'x' || c == 'X')
-		length += (ft_print_hex(va_arg(args, unsigned int), c == 'x'));
+		length += (ft_print_hex(va_arg(*args, unsigned int), c == 'x'));
 	if (c == 'p')
-		length += (ft_print_pointer(va_arg(args, void *)));
+		length += (ft_print_pointer(va_arg(*args, void *)));
 	if (c == '%')
 		length += (ft_print_char('%'));
 	return (length);
@@ -48,7 +48,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			counter += ft_handle_placeholders(args, str[i + 1]);
+			counter += ft_handle_placeholders(&args, str[i + 1]);
 			i++;
 		}
 		else
