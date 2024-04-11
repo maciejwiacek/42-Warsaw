@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 23:04:07 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/26 15:12:07 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/11 22:30:54 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+int main(int argc, char *argv[])
+{
+	t_node	*stack_a;
+	t_node	*stack_b;
 
-size_t		ft_strlen(const char *s);
-char		*ft_strchr(char *s, char c);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		*ft_strdup(const char *s);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*get_next_line(int fd);
-
-#endif
+	stack_a = NULL;
+	stack_b = NULL;
+}

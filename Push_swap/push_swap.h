@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 23:04:07 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/03/26 15:12:07 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/11 22:31:46 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
+# include <stdbool.h>
 
-size_t		ft_strlen(const char *s);
-char		*ft_strchr(char *s, char c);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		*ft_strdup(const char *s);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*get_next_line(int fd);
+
+typedef struct s_node {
+	int				content;
+	struct s_node	*next;
+} t_node;
 
 #endif
