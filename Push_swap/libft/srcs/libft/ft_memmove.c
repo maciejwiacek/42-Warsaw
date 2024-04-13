@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/11 21:44:49 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/27 16:56:29 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:42:11 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char *argv[])
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
+	char	*ptr_dest;
+	char	*ptr_src;
+	size_t	i;
 
-	stack_a = NULL;
-	stack_b = NULL;
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	ptr_dest = (char *) dest;
+	ptr_src = (char *) src;
+	if (ptr_dest > ptr_src)
+	{
+		while (n-- > 0)
+			ptr_dest[n] = ptr_src[n];
+	}
+	else
+	{
+		while (i < n)
+		{
+			ptr_dest[i] = ptr_src[i];
+			i++;
+		}
+	}
+	return (dest);
 }
