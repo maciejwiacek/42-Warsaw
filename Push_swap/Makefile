@@ -8,6 +8,7 @@ SRC_DIR =	src
 # SRC FILES #
 SRC_FLS =	list_utils.c \
 				push_swap.c \
+				validation.c \
 
 # FILEPATHS #
 SRCS =		$(addprefix $(SRC_DIR)/,$(SRC_FLS))

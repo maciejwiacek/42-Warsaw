@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 10:31:16 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/13 15:07:55 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/13 17:00:22 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*ft_lstnew(int nbr)
 {
 	t_node	*new_item;
 
-	new_item = malloc(sizeof(t_list));
+	new_item = malloc(sizeof(t_node));
 	if (!new_item)
 		return (NULL);
 	new_item->content = nbr;
@@ -28,7 +28,7 @@ void	ft_lstadd_back(t_node **stack, t_node *new_item)
 {
 	t_node	*current_item;
 
-	if (!stack || !new)
+	if (!stack || !new_item)
 		return ;
 	if (*stack == NULL)
 	{
