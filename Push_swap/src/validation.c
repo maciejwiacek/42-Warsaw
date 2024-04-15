@@ -6,15 +6,14 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 12:40:52 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/14 18:45:43 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/15 14:35:44 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 #include "../libft/includes/libft.h"
-#include "../libft/includes/printf.h"
 
-bool	is_valid(char *s)
+static bool	is_valid(char *s)
 {
 	if ((*s == '+' || *s == '-') && *s + 1 != '\0')
 		s++;
@@ -25,7 +24,7 @@ bool	is_valid(char *s)
 	return (true);
 }
 
-bool	validate_duplicates(char **argv, bool is_split)
+static bool	validate_duplicates(char **argv, bool is_split)
 {
 	size_t	i;
 	size_t	j;
@@ -45,7 +44,7 @@ bool	validate_duplicates(char **argv, bool is_split)
 	return (true);
 }
 
-bool	validate_limits(char *s)
+static bool	validate_limits(char *s)
 {
 	char	int_max[11];
 	char	int_min[12];

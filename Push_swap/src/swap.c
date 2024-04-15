@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/15 16:12:11 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/15 14:42:33 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/15 14:57:27 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-#include "../libft/includes/libft.h"
 #include "../libft/includes/printf.h"
 
-int	main(int argc, char *argv[])
+static void	swap(t_node *stack)
 {
-	t_node	*stack_a;
+	int	tmp;
 
-	if (argc < 2)
-		return (error());
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (!validate_input(argv, argc == 2))
-		return (error());
-	if (!(stack_a = stack_init(argv, argc == 2)))
-		return (error());
-	free(stack_a);
-	return (0);
+	if (stack == NULL || stack->next == NULL)
+		return ;
+	tmp = stack->content;
+	stack->content = stack->next->content;
+	stack->next->content = tmp;
+}
+
+void	swap_a(t_node **sa)
+{
+	swap(*sa);
+	ft_printf("sa\n");
+}
+
+void	swap_b(t_node **sb)
+{
+	swap(*sb);
+	ft_printf("sb\n");
+}
+
+void	swap_s(t_node **sa, t_node **sb)
+{
+	swap(*sa);
+	swap(*sb);
+	ft_printf("ss\n");
 }

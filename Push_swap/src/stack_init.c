@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/15 16:12:11 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/15 12:32:27 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/15 14:27:04 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 #include "../libft/includes/libft.h"
 #include "../libft/includes/printf.h"
 
-int	main(int argc, char *argv[])
+t_node	*stack_init(char *argv[], bool is_split)
 {
 	t_node	*stack_a;
+	size_t	i;
 
-	if (argc < 2)
-		return (error());
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (!validate_input(argv, argc == 2))
-		return (error());
-	if (!(stack_a = stack_init(argv, argc == 2)))
-		return (error());
-	free(stack_a);
-	return (0);
+	stack_a = malloc(sizeof(t_node) * arr_size(argv));
+	if (!stack_a)
+		return (NULL);
+	i = !is_split;
+	stack_a = NULL;
+	while (argv[i])
+	{
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
+		i++;
+	}
+	return (stack_a);
 }
+
+/*
+ * TODO: Possible mem leak with lstnew, have to protect it later!
+ */

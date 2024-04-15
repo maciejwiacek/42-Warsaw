@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   global_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/15 16:12:11 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/15 13:56:32 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-#include "../libft/includes/libft.h"
 #include "../libft/includes/printf.h"
 
-int	main(int argc, char *argv[])
+size_t	arr_size(char **arr)
 {
-	t_node	*stack_a;
+	size_t	i;
 
-	if (argc < 2)
-		return (error());
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (!validate_input(argv, argc == 2))
-		return (error());
-	if (!(stack_a = stack_init(argv, argc == 2)))
-		return (error());
-	free(stack_a);
-	return (0);
+	i = 0;
+	while (arr[i])
+		i++;
+	return (i);
+}
+
+int	error()
+{
+	ft_printf("Error\n");
+	return (1);
 }
