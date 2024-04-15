@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 10:31:16 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/13 17:00:22 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/15 16:53:38 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,19 @@ void	ft_lstadd_back(t_node **stack, t_node *new_item)
 	while (current_item->next != NULL)
 		current_item = current_item->next;
 	current_item->next = new_item;
+}
+
+void	ft_lstadd_front(t_node **stack, t_node *new_item)
+{
+	t_node	*current_item;
+
+	if (!stack || !new_item)
+		return ;
+	if (*stack == NULL)
+	{
+		*stack = new_item;
+		return ;
+	}
+	new_item->next = *stack;
+	*stack = new_item;
 }
