@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/15 13:56:32 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:20:34 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	arr_size(char **arr)
 	return (i);
 }
 
-int	error()
+int	error(void)
 {
 	ft_printf("Error\n");
 	return (1);

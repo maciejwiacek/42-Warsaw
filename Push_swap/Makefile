@@ -13,6 +13,7 @@ SRC_FLS =	list_utils.c \
 				stack_init.c \
 				swap.c \
 				push.c \
+				rotate.c \
 
 # FILEPATHS #
 SRCS =		$(addprefix $(SRC_DIR)/,$(SRC_FLS))
