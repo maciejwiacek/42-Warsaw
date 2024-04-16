@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/15 16:55:05 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:07:55 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	swap_a(t_node **sa);
 void	swap_b(t_node **sa);
 void	swap_s(t_node **sa, t_node **sb);
 void	ft_lstadd_front(t_node **stack, t_node *new_item);
+void	push_a(t_node **stack_a, t_node **stack_b);
+void	push_b(t_node **stack_a, t_node **stack_b);
 
 #endif
