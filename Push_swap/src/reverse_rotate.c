@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:48:50 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 14:19:56 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 18:22:41 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@ static void	reverse_rotate(t_node **stack)
 {
 	t_node	*last;
 	t_node	*bef_last;
-	t_node	*tmp;
 
 	bef_last = *stack;
 	while (bef_last->next->next)
 		bef_last = bef_last->next;
 	last = bef_last->next;
-	tmp = *stack;
+	bef_last->next = NULL;
+	last->next = *stack;
 	*stack = last;
-	(*stack)->next = tmp;
-	bef_last = NULL;
 }
 
 void	rra(t_node **stack_a)

@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:21:03 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 18:16:39 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
+	t_node	*stack_b;
+	t_node	*tmp_a;
+	t_node	*tmp_b;
 
 	if (argc < 2)
 		return (error());
@@ -27,7 +30,20 @@ int	main(int argc, char *argv[])
 	stack_a = stack_init(argv, argc == 2);
 	if (!stack_a)
 		return (error());
-	ft_printf("%d", stack_a->content);
+	stack_b = NULL;
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	rrr(&stack_a, &stack_b);
+	tmp_a = stack_a;
+	tmp_b = stack_b;
+	while (tmp_a && tmp_b)
+	{
+		ft_printf("A: %d\tB: %d\n", tmp_a->content, tmp_b->content);
+		tmp_a = tmp_a->next;
+		tmp_b = tmp_b->next;
+	}
 	free(stack_a);
 	return (0);
 }

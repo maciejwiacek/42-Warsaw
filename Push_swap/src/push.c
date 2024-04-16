@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:04:14 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:52:04 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 18:11:50 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void	push(t_node **src_stack, t_node **dst_stack)
 {
 	t_node	*tmp;
 
-	if (!*src_stack)
+	if (!(*src_stack))
 		return ;
-	tmp = *src_stack->next;
-	*src_stack->next = *dst_stack;
+	tmp = (*src_stack)->next;
+	(*src_stack)->next = *dst_stack;
 	*dst_stack = *src_stack;
 	*src_stack = tmp;
 }

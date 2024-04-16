@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 10:31:16 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:20:17 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 18:08:24 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	ft_lstadd_back(t_node **stack, t_node *new_item)
 
 void	ft_lstadd_front(t_node **stack, t_node *new_item)
 {
-	t_node	*current_item;
-
 	if (!stack || !new_item)
 		return ;
 	if (*stack == NULL)
