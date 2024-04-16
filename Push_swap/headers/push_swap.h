@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:53:49 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 14:20:18 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ void	pb(t_node **stack_a, t_node **stack_b);
 void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
 
 #endif
