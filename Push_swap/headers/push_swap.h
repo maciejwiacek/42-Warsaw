@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:19:55 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:53:49 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ bool	validate_input(char *argv[], bool is_split);
 size_t	arr_size(char **arr);
 t_node	*stack_init(char *argv[], bool is_split);
 int		error(void);
-void	swap_a(t_node **sa);
-void	swap_b(t_node **sa);
-void	swap_s(t_node **sa, t_node **sb);
+void	sa(t_node **sa);
+void	sb(t_node **sa);
+void	ss(t_node **sa, t_node **sb);
 void	ft_lstadd_front(t_node **stack, t_node *new_item);
-void	push_a(t_node **stack_a, t_node **stack_b);
-void	push_b(t_node **stack_a, t_node **stack_b);
-void	rotate_a(t_node **stack_a);
-void	rotate_b(t_node **stack_b);
-void	rotate_r(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_a, t_node **stack_b);
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	rr(t_node **stack_a, t_node **stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:09:30 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:20:27 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:52:14 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ static void	rotate(t_node **stack)
 	last->next = tmp;
 }
 
-void	rotate_a(t_node **stack_a)
+void	ra(t_node **stack_a)
 {
 	rotate(stack_a);
 	ft_printf("ra\n");
 }
 
-void	rotate_b(t_node **stack_b)
+void	rb(t_node **stack_b)
 {
 	rotate(stack_b);
 	ft_printf("ra\n");
 }
 
-void	rotate_r(t_node **stack_a, t_node **stack_b)
+void	rr(t_node **stack_a, t_node **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);

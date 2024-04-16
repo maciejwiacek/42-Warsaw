@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:42:33 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 12:21:19 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:51:55 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ static void	swap(t_node *stack)
 	stack->next->content = tmp;
 }
 
-void	swap_a(t_node **sa)
+void	sa(t_node **sa)
 {
 	swap(*sa);
 	ft_printf("sa\n");
 }
 
-void	swap_b(t_node **sb)
+void	sb(t_node **sb)
 {
 	swap(*sb);
 	ft_printf("sb\n");
 }
 
-void	swap_s(t_node **sa, t_node **sb)
+void	ss(t_node **sa, t_node **sb)
 {
 	swap(*sa);
 	swap(*sb);
