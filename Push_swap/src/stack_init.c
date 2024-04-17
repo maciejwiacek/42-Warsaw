@@ -6,14 +6,14 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:32:27 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 18:44:49 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/16 18:47:29 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 #include "../libft/includes/libft.h"
 
-static void	free_stack(t_node **stack)
+void	free_stack(t_node **stack)
 {
 	t_node	*tmp;
 	t_node	*tmp_next;

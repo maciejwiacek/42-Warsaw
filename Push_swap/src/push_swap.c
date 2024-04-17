@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/16 18:28:05 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/17 09:18:28 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
-//	t_node	*stack_b;
+	t_node	*stack_b;
 
 	if (argc < 2)
 		return (error());
@@ -28,7 +28,9 @@ int	main(int argc, char *argv[])
 	stack_a = stack_init(argv, argc == 2);
 	if (!stack_a)
 		return (error());
-//	stack_b = NULL;
-	free(stack_a);
+	stack_b = NULL;
+	sort_stack(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
