@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/17 09:16:04 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:42:53 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 void	sort_stack(t_node **stack_a, t_node **stack_b);
+size_t	find_lowest_num(t_node *stack);
+bool	is_sorted(t_node *stack);
 
 #endif
