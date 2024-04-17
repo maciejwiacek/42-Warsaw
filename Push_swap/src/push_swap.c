@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/17 09:18:28 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/17 13:35:18 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int	main(int argc, char *argv[])
 		return (error());
 	stack_b = NULL;
 	sort_stack(&stack_a, &stack_b);
+	while (stack_a)
+	{
+		ft_printf("%d\n", stack_a->content);
+		stack_a = stack_a->next;
+	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
