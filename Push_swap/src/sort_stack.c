@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:45:56 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/17 14:07:36 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:08:53 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static void	sort_three(t_node **stack_a)
 {
 	while (!is_sorted(stack_a))
 	{
-		if ((*stack_a)->content > (*stack_a)->next->next->content && (*stack_a)->content > (*stack_a)->next->content)
+		if ((*stack_a)->content > (*stack_a)->next->next->content
+			&& (*stack_a)->content > (*stack_a)->next->content)
 			ra(stack_a);
 		if ((*stack_a)->next->content > (*stack_a)->next->next->content)
 			rra(stack_a);
