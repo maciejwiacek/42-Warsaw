@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:30:22 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:40:50 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	print_stack(t_node *stack);
 bool	validate_input(char *argv[], bool is_split);
 t_node	*stack_init(char *argv[], bool is_split);
 
+// SORTING
+void	sort_stack(t_node **stack_a, t_node **stack_b);
+
 // INSTRUCTIONS
 void	sa(t_node **stack_a);
 void	sb(t_node **stack_b);
@@ -53,5 +56,6 @@ t_node	*ft_lstnew(int nbr);
 void	ft_lstadd_front(t_node **stack, t_node *item);
 void	ft_lstadd_back(t_node **stack, t_node *item);
 size_t	ft_lstsize(t_node *stack);
+bool	is_sorted(t_node *stack);
 
 #endif

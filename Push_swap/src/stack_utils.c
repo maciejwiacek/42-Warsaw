@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:26:19 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 16:51:25 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:49:03 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,21 @@ size_t	ft_lstsize(t_node *stack)
 		i++;
 	}
 	return (i);
+}
+
+bool	is_sorted(t_node *stack)
+{
+	t_node	*head;
+
+	head = stack;
+	if (head > stack->next)
+		return (false);
+	stack = stack->next;
+	while (stack != head)
+	{
+		if (stack > stack->next)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
 }

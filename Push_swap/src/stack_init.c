@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:44:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 16:51:47 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:31:26 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ t_node	*stack_init(char *argv[], bool is_split)
 		i++;
 	}
 	return (stack);
-
 }
