@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 16:24:34 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:59:25 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,19 @@ void	print_stack(t_node *stack)
 		ft_printf("%d\n", current->number);
 		current = current->next;
 	}
+}
+
+void	free_stack(t_node **stack)
+{
+	t_node	*current;
+	t_node	*next_node;
+
+	current = *stack;
+	while (current != NULL)
+	{
+		next_node = current->next;
+		free(current);
+		current = next_node;
+	}
+	*stack = NULL;
 }

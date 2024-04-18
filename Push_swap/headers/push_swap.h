@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:40:50 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:52:58 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_node
 // GLOBAL UTILS
 int		error(void);
 void	print_stack(t_node *stack);
+void	free_stack(t_node **stack);
 
 // INIT
 bool	validate_input(char *argv[], bool is_split);

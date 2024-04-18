@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:44:42 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:57:52 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	sort_stack(&stack_a, &stack_b);
 	print_stack(stack_a);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
