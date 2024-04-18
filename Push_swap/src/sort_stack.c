@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:45:56 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/17 14:45:07 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 12:25:53 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static void	sort_four(t_node **stack_a, t_node **stack_b)
 	size_t	low_pos;
 
 	low_pos = find_lowest_num(*stack_a);
+	if (is_sorted((*stack_a)->next->next))
+	{
+		sa(stack_a);
+		return ;
+	}
 	if (low_pos < 2)
 	{
 		while (low_pos--)
@@ -46,6 +51,31 @@ static void	sort_four(t_node **stack_a, t_node **stack_b)
 	}
 	pb(stack_a, stack_b);
 	sort_three(stack_a);
+	pa(stack_a, stack_b);
+}
+
+static void	sort_five(t_node **stack_a, t_node **stack_b)
+{
+	size_t	low_pos;
+
+	low_pos = find_lowest_num(*stack_a);
+	if (is_sorted((*stack_a)->next->next))
+	{
+		sa(stack_a);
+		return ;
+	}
+	if (low_pos < 3)
+	{
+		while (low_pos--)
+			ra(stack_a);
+	}
+	else if (low_pos > 2)
+	{
+		while (low_pos++ < 5)
+			rra(stack_a);
+	}
+	pb(stack_a, stack_b);
+	sort_four(stack_a, stack_b);
 	pa(stack_a, stack_b);
 }
 
@@ -62,5 +92,7 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 			sort_three(stack_a);
 		if (stack_size == 4)
 			sort_four(stack_a, stack_b);
+		if (stack_size == 5)
+			sort_five(stack_a, stack_b);
 	}
 }
