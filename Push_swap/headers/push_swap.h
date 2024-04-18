@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 17:31:02 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:30:22 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	rr(t_node **stack_a, t_node **stack_b);
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
 
 // LIST UTILS
 t_node	*ft_lstnew(int nbr);

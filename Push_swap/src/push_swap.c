@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:19:20 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:27:46 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	main(int argc, char *argv[])
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
+	ra(&stack_a);
+	rb(&stack_b);
 	ft_printf("Stack A:\n");
 	print_stack(stack_a);
 	ft_printf("Stack B:\n");
