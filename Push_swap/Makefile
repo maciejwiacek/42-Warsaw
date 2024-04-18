@@ -6,17 +6,11 @@ LIBFT_DIR =	libft
 SRC_DIR =	src
 
 # SRC FILES #
-SRC_FLS =	list_utils.c \
-				push_swap.c \
+SRC_FLS =	push_swap.c \
 				validation.c \
 				global_utils.c \
-				stack_init.c \
-				swap.c \
-				push.c \
-				rotate.c \
-				reverse_rotate.c \
-				sort_stack.c \
 				stack_utils.c \
+				stack_init.c \
 
 # FILEPATHS #
 SRCS =		$(addprefix $(SRC_DIR)/,$(SRC_FLS))

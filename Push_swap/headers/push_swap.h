@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/17 14:42:53 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:50:44 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,30 @@
 
 # include <stdbool.h>
 # include <stdlib.h>
+# include "../libft/includes/printf.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_node
 {
-	int				content;
+	int				number;
+	int				price;
+	struct s_node	*target;
 	struct s_node	*next;
+	struct s_node	*prev;
 }	t_node;
 
-t_node	*ft_lstnew(int nbr);
-void	ft_lstadd_back(t_node **stack, t_node *new_item);
-void	ft_lstadd_front(t_node **stack, t_node *new_item);
-size_t	ft_lstsize(t_node **stack);
+// GLOBAL UTILS
+int		error(void);
+void	print_stack(t_node *stack);
+
+// INIT
 bool	validate_input(char *argv[], bool is_split);
 t_node	*stack_init(char *argv[], bool is_split);
-void	free_stack(t_node **stack);
-int		error(void);
-void	sa(t_node **sa);
-void	sb(t_node **sa);
-void	ss(t_node **sa, t_node **sb);
-void	pa(t_node **stack_a, t_node **stack_b);
-void	pb(t_node **stack_a, t_node **stack_b);
-void	ra(t_node **stack_a);
-void	rb(t_node **stack_b);
-void	rr(t_node **stack_a, t_node **stack_b);
-void	rra(t_node **stack_a);
-void	rrb(t_node **stack_b);
-void	rrr(t_node **stack_a, t_node **stack_b);
-void	sort_stack(t_node **stack_a, t_node **stack_b);
-size_t	find_lowest_num(t_node *stack);
-bool	is_sorted(t_node *stack);
+
+// LIST UTILS
+t_node	*ft_lstnew(int nbr);
+void	ft_lstadd_front(t_node **stack, t_node *item);
+void	ft_lstadd_back(t_node **stack, t_node *item);
+size_t	ft_lstsize(t_node *stack);
 
 #endif

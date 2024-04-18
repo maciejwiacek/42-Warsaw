@@ -5,42 +5,75 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 14:24:30 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/17 14:46:04 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/18 16:26:19 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/18 16:51:25 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-size_t	find_lowest_num(t_node *stack)
+t_node	*ft_lstnew(int nbr)
 {
-	size_t	i;
-	size_t	pos;
-	int		low;
+	t_node	*new_item;
 
-	i = 0;
-	pos = 0;
-	low = stack->content;
-	while (stack)
-	{
-		if (low > stack->content)
-		{
-			pos = i;
-			low = stack->content;
-		}
-		stack = stack->next;
-		i++;
-	}
-	return (pos);
+	new_item = malloc(sizeof(t_node));
+	if (!new_item)
+		return (NULL);
+	new_item->number = nbr;
+	new_item->next = NULL;
+	new_item->prev = NULL;
+	return (new_item);
 }
 
-bool	is_sorted(t_node *stack)
+void	ft_lstadd_front(t_node **stack, t_node *item)
 {
-	while (stack && stack->next)
+	if (!(*stack))
 	{
-		if (stack->content > stack->next->content)
-			return (false);
-		stack = stack->next;
+		item->next = item;
+		item->prev = item;
 	}
-	return (true);
+	else
+	{
+		item->prev = (*stack)->prev;
+		item->next = (*stack);
+		(*stack)->prev->next = item;
+		(*stack)->prev = item;
+	}
+	*stack = item;
+}
+
+void	ft_lstadd_back(t_node **stack, t_node *item)
+{
+	if (!(*stack))
+	{
+		item->next = item;
+		item->prev = item;
+		*stack = item;
+	}
+	else
+	{
+		item->prev = (*stack)->prev;
+		item->next = (*stack);
+		(*stack)->prev->next = item;
+		(*stack)->prev = item;
+	}
+}
+
+size_t	ft_lstsize(t_node *stack)
+{
+	t_node	*current;
+	size_t	i;
+
+	if (!stack)
+		return (0);
+	if (!stack->next)
+		return (1);
+	i = 1;
+	current = stack->next;
+	while (current != stack)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
 }
