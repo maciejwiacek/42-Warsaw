@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 16:53:29 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:19:20 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
-//	t_node	*stack_b;
+	t_node	*stack_b;
 
 	if (argc < 2)
 		error();
@@ -26,10 +26,18 @@ int	main(int argc, char *argv[])
 	stack_a = stack_init(argv, argc == 2);
 	if (!stack_a)
 		return (error());
+	stack_b = NULL;
+	ft_printf("Stack A:\n");
 	print_stack(stack_a);
-	ft_printf("Stack size: %d\n", ft_lstsize(stack_a));
-	ft_printf("Second item: %d\n", stack_a->next->next->prev->number);
-//	stack_b = NULL;
+	ft_printf("Stack B:\n");
+	print_stack(stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	ft_printf("Stack A:\n");
+	print_stack(stack_a);
+	ft_printf("Stack B:\n");
+	print_stack(stack_b);
 //	sort_stack(&stack_a, &stack_b);
 //	free_stack(&stack_a);
 //	free_stack(&stack_b);

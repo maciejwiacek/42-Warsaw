@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 16:50:44 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/18 17:31:02 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ void	print_stack(t_node *stack);
 // INIT
 bool	validate_input(char *argv[], bool is_split);
 t_node	*stack_init(char *argv[], bool is_split);
+
+// INSTRUCTIONS
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_a, t_node **stack_b);
 
 // LIST UTILS
 t_node	*ft_lstnew(int nbr);
