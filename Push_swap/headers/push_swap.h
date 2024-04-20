@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:52:58 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:01:54 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_node
 {
 	int				number;
 	int				price;
+	size_t			index;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;

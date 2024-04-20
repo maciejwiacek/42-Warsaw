@@ -23,7 +23,8 @@ OBJS =		$(SRCS:.c=.o)
 
 # COMMANDS #
 CC = 		gcc
-CFLAGS =	-Wall -Wextra -Werror
+#CFLAGS =	-Wall -Wextra -Werror
+CFLAGS =
 RM =		rm -rf
 
 # RULES #

@@ -6,25 +6,23 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:44:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:31:26 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:25:09 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static void	free_stack(t_node **stack)
+static void	free_arr(char *argv[])
 {
-	t_node	*tmp;
-	t_node	*tmp_next;
+	size_t	i;
 
-	tmp = *stack;
-	while (tmp && tmp_next)
+	i = 0;
+	while (argv[i] != NULL)
 	{
-		tmp_next = tmp->next;
-		free(tmp);
-		tmp = tmp_next;
+		free(argv[i]);
+		i++;
 	}
-	free(tmp);
+	free(argv);
 }
 
 t_node	*stack_init(char *argv[], bool is_split)
@@ -46,5 +44,7 @@ t_node	*stack_init(char *argv[], bool is_split)
 		ft_lstadd_back(&stack, new_item);
 		i++;
 	}
+	if (is_split)
+		free_arr(argv);
 	return (stack);
 }

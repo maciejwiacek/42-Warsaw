@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:59:25 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:36:15 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void	free_stack(t_node **stack)
 {
 	t_node	*current;
 	t_node	*next_node;
+	size_t	len;
 
 	current = *stack;
-	while (current != NULL)
+	len = ft_lstsize(*stack);
+	while (len-- > 0)
 	{
 		next_node = current->next;
 		free(current);
