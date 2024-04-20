@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/20 14:53:02 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/20 15:06:39 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ t_node	*find_min(t_node *stack);
 t_node	*find_max(t_node *stack);
 size_t	find_index(t_node *stack, t_node *item);
 t_node	*find_target(t_node *item, t_node *stack_b);
+
+// PRICE CALC
+size_t	check_rarb_ab(t_node *stack_a, t_node *stack_b);
+size_t	check_rrarb_ab(t_node *stack_a, t_node *stack_b);
+size_t	check_rarrb_ab(t_node *stack_a, t_node *stack_b);
+size_t	check_rrarrb_ab(t_node *stack_a, t_node *stack_b);
 
 // INSTRUCTIONS
 void	sa(t_node **stack_a);
