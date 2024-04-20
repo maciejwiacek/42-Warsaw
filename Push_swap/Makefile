@@ -16,6 +16,7 @@ SRC_FLS =	push_swap.c \
 				rotate.c \
 				reverse_rotate.c \
 				sort_stack.c \
+				cheapest_number_utils.c \
 
 # FILEPATHS #
 SRCS =		$(addprefix $(SRC_DIR)/,$(SRC_FLS))
