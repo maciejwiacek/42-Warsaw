@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/20 14:36:15 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/21 15:29:27 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ void	print_stack(t_node *stack)
 
 	if (!stack)
 		return ;
-	ft_printf("%d\n", stack->number);
+	current = stack;
+	ft_printf("Number: %d\n", current->number);
+	ft_printf("Price: %d\n", current->price);
 	current = stack->next;
 	while (current != stack)
 	{
-		ft_printf("%d\n", current->number);
+		ft_printf("Number: %d\n", current->number);
+		ft_printf("Price: %d\n", current->price);
 		current = current->next;
 	}
 }

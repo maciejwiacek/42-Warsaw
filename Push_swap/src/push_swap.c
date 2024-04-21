@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/20 15:17:51 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/21 15:32:02 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,19 @@ int	main(int argc, char *argv[])
 		return (error());
 	stack_b = NULL;
 	sort_stack(&stack_a, &stack_b);
+	ft_printf("\nStack A:\n\n");
 	print_stack(stack_a);
+	ft_printf("\nStack B:\n\n");
+	print_stack(stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
-	stack_a->target = find_target(stack_a, stack_b);
-	size_t moves = check_rarb_ab(stack_a, stack_b);
-	ft_printf("Moves: %d\n", moves);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	assign_prices(&stack_a, &stack_b);
+	ft_printf("\nStack A:\n\n");
+	print_stack(stack_a);
+	ft_printf("\nStack B:\n\n");
+	print_stack(stack_b);
 	free_stack(&stack_a);
 	return (0);
 }
