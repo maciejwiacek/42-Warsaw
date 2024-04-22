@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:26:19 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:49:03 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:35:22 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,19 @@ size_t	ft_lstsize(t_node *stack)
 bool	is_sorted(t_node *stack)
 {
 	t_node	*head;
+	t_node	*current;
 
 	head = stack;
-	if (head > stack->next)
+	current = stack->next;
+	if (head->number > current->number)
 		return (false);
-	stack = stack->next;
-	while (stack != head)
+	while (current != head)
 	{
-		if (stack > stack->next)
+		if (current->next == head)
+			return (true);
+		if (current->number > current->next->number)
 			return (false);
-		stack = stack->next;
+		current = current->next;
 	}
 	return (true);
 }

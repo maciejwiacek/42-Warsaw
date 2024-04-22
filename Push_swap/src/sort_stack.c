@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:32:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 16:43:50 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:28:51 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,26 @@ static void	sort_three(t_node **stack_a)
 		sa(stack_a);
 }
 
-static void	rotate_stack(t_node **stack_a)
+static void	sort_four(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*min;
 
 	min = find_min(*stack_a);
-	while (*stack_a != min)
-	{
-		ra(stack_a);
-	}
+	rotate_to_top(stack_a, min);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
 }
 
 static void	sort_big(t_node **stack_a, t_node **stack_b)
 {
+	t_node	*min;
+
 	push_to_b(stack_a, stack_b);
 	sort_three(stack_a);
 	push_to_a(stack_a, stack_b);
-	rotate_stack(stack_a);
+	min = find_min(*stack_a);
+	rotate_to_top(stack_a, min);
 }
 
 void	sort_stack(t_node **stack_a, t_node **stack_b)
@@ -60,6 +63,8 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 		sort_two(stack_a);
 	if (stack_len == 3)
 		sort_three(stack_a);
-	if (stack_len > 3)
+	if (stack_len == 4)
+		sort_four(stack_a, stack_b);
+	if (stack_len > 4)
 		sort_big(stack_a, stack_b);
 }

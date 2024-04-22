@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:49:13 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 17:24:51 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:02:37 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	assign_target_a(t_node *stack, t_node *item)
 	}
 	else if (max->number < item->number)
 	{
-		item->target = max;
+		item->target = min;
 		return ;
 	}
 	while (stack->number < item->number || stack->prev->number > item->number)
@@ -43,7 +43,7 @@ void	rotate_to_top(t_node **stack, t_node *item)
 	len = ft_lstsize(*stack);
 	if (*stack == item)
 		return ;
-	if (i < len / 2)
+	if (i <= (len / 2))
 	{
 		while (*stack != item)
 			ra(stack);

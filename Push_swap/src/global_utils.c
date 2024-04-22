@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 12:10:34 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:13:03 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	error(void)
 {
 	ft_printf("Error\n");
-	exit (1);
+	return (1);
 }
 
 void	print_stack(t_node *stack)
