@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:32:53 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 13:20:45 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 16:43:50 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ static void	sort_three(t_node **stack_a)
 		sa(stack_a);
 }
 
+static void	rotate_stack(t_node **stack_a)
+{
+	t_node	*min;
+
+	min = find_min(*stack_a);
+	while (*stack_a != min)
+	{
+		ra(stack_a);
+	}
+}
+
 static void	sort_big(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*cheapest;
-	size_t	a_len;
-
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	a_len = ft_lstsize(*stack_a);
-	while (a_len > 3)
-	{
-		assign_prices(stack_a, stack_b);
-		cheapest = find_cheapest(*stack_a);
-		make_rotation_ab(stack_a, stack_b, cheapest);
-		pb(stack_a, stack_b);
-		a_len--;
-	}
+	push_to_b(stack_a, stack_b);
 	sort_three(stack_a);
+	push_to_a(stack_a, stack_b);
+	rotate_stack(stack_a);
 }
 
 void	sort_stack(t_node **stack_a, t_node **stack_b)

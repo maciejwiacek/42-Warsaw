@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 13:28:15 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 17:02:55 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ void	sort_stack(t_node **stack_a, t_node **stack_b);
 // SORTING UTILS
 t_node	*find_cheapest(t_node *stack);
 void	make_rotation_ab(t_node **stack_a, t_node **stack_b, t_node *item);
+void	push_to_b(t_node **stack_a, t_node **stack_b);
+void	push_to_a(t_node **stack_a, t_node **stack_b);
+void	rotate_to_top(t_node **stack, t_node *item);
+void	assign_target_a(t_node *stack, t_node *item);
 
 // PRICE UTILS
 t_node	*find_min(t_node *stack);
