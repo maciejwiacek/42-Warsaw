@@ -6,12 +6,11 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 12:40:52 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/15 14:35:44 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/21 15:37:51 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-#include "../libft/includes/libft.h"
 
 static bool	is_valid(char *s)
 {

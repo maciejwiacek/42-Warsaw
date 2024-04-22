@@ -1,52 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   global_utils.c                                     :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 12:29:43 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 12:10:34 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/22 12:12:46 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/22 13:23:25 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-int	error(void)
+t_node	*find_cheapest(t_node *stack)
 {
-	ft_printf("Error\n");
-	exit (1);
-}
-
-void	print_stack(t_node *stack)
-{
+	t_node	*cheapest;
 	t_node	*current;
 
-	if (!stack)
-		return ;
-	current = stack;
-	ft_printf("Number: %d\n", current->number);
+	cheapest = stack;
 	current = stack->next;
-	while (current != stack)
+	while (stack != current)
 	{
-		ft_printf("Number: %d\n", current->number);
+		if (cheapest->price > current->price)
+			cheapest = current;
+		if (cheapest->price == 0)
+			return (cheapest);
 		current = current->next;
 	}
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*current;
-	t_node	*next_node;
-	size_t	len;
-
-	current = *stack;
-	len = ft_lstsize(*stack);
-	while (len-- > 0)
-	{
-		next_node = current->next;
-		free(current);
-		current = next_node;
-	}
-	*stack = NULL;
+	return (cheapest);
 }

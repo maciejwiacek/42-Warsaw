@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:01:23 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/20 17:28:50 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/22 13:23:17 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ size_t	check_rrarb_ab(t_node *stack_a, t_node *stack_b, t_node *item)
 {
 	size_t	moves;
 
-	moves = find_index(stack_b, item->target);
-	if (moves < ft_lstsize(stack_a) - find_index(stack_a, item))
-		moves = ft_lstsize(stack_a) - find_index(stack_a, item);
+	moves = find_index(stack_b, item->target)
+		+ (ft_lstsize(stack_a) - find_index(stack_a, item));
 	return (moves);
 }
 
@@ -36,9 +35,8 @@ size_t	check_rarrb_ab(t_node *stack_a, t_node *stack_b, t_node *item)
 {
 	size_t	moves;
 
-	moves = find_index(stack_a, item);
-	if (moves < ft_lstsize(stack_b) - find_index(stack_b, item->target))
-		moves = ft_lstsize(stack_b) - find_index(stack_b, item->target);
+	moves = find_index(stack_a, item)
+		+ ft_lstsize(stack_b) - find_index(stack_b, item->target);
 	return (moves);
 }
 
