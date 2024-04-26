@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 17:02:55 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 13:22:09 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include "../libft/includes/printf.h"
 # include "../libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
 
 typedef struct s_node
 {
@@ -26,6 +27,9 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
+
+// CHECKER
+void	check_stacks(t_node **stack_a, t_node **stack_b);
 
 // GLOBAL UTILS
 int		error(void);
