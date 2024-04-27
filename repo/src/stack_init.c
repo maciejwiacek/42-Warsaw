@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 21:16:20 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/27 17:39:23 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/04/18 16:44:53 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/20 14:25:09 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static void	free_argv(char **argv)
+static void	free_arr(char *argv[])
 {
 	size_t	i;
 
 	i = 0;
-	while (argv[i])
+	while (argv[i] != NULL)
 	{
 		free(argv[i]);
 		i++;
@@ -25,30 +25,26 @@ static void	free_argv(char **argv)
 	free(argv);
 }
 
-int	main(int argc, char *argv[])
+t_node	*stack_init(char *argv[], bool is_split)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
+	t_node	*stack;
+	t_node	*new_item;
+	size_t	i;
 
-	if (argc < 2)
-		return (error());
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (!validate_input(argv, argc == 2))
+	i = !is_split;
+	stack = NULL;
+	while (argv[i])
 	{
-		if (argc == 2)
-			free_argv(argv);
-		return (error());
+		new_item = ft_lstnew(ft_atoi(argv[i]));
+		if (!new_item)
+		{
+			free_stack(&stack);
+			return (NULL);
+		}
+		ft_lstadd_back(&stack, new_item);
+		i++;
 	}
-	stack_a = stack_init(argv, argc == 2);
-	if (!stack_a)
-	{
-		if (argc == 2)
-			free_argv(argv);
-		return (error());
-	}
-	stack_b = NULL;
-	sort_stack(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	return (0);
+	if (is_split)
+		free_arr(argv);
+	return (stack);
 }
