@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:23:23 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 13:23:31 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:49:39 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,40 @@
 static void	make_rarb_ab(t_node **stack_a, t_node **stack_b, t_node *item)
 {
 	while (*stack_a != item && *stack_b != item->target)
-		rr(stack_a, stack_b);
+		rr(stack_a, stack_b, true);
 	while (*stack_a != item)
-		ra(stack_a);
+		ra(stack_a, true);
 	while (*stack_b != item->target)
-		rb(stack_b);
+		rb(stack_b, true);
 	item->price = 0;
 }
 
 static void	make_rrarb_ab(t_node **stack_a, t_node **stack_b, t_node *item)
 {
 	while (*stack_a != item)
-		rra(stack_a);
+		rra(stack_a, true);
 	while (*stack_b != item->target)
-		rb(stack_b);
+		rb(stack_b, true);
 	item->price = 0;
 }
 
 static void	make_rarrb_ab(t_node **stack_a, t_node **stack_b, t_node *item)
 {
 	while (*stack_a != item)
-		ra(stack_a);
+		ra(stack_a, true);
 	while (*stack_b != item->target)
-		rrb(stack_b);
+		rrb(stack_b, true);
 	item->price = 0;
 }
 
 static void	make_rrarrb_ab(t_node **stack_a, t_node **stack_b, t_node *item)
 {
 	while (*stack_a != item && *stack_b != item->target)
-		rrr(stack_a, stack_b);
+		rrr(stack_a, stack_b, true);
 	while (*stack_a != item)
-		rra(stack_a);
+		rra(stack_a, true);
 	while (*stack_b != item->target)
-		rrb(stack_b);
+		rrb(stack_b, true);
 	item->price = 0;
 }
 

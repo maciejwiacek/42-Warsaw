@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 21:16:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/26 13:22:09 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:51:44 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,17 @@ size_t	check_rrarrb_ab(t_node *stack_a, t_node *stack_b, t_node *item);
 void	assign_prices(t_node **stack_a, t_node **stack_b);
 
 // INSTRUCTIONS
-void	sa(t_node **stack_a);
-void	sb(t_node **stack_b);
-void	ss(t_node **stack_a, t_node **stack_b);
-void	pa(t_node **stack_a, t_node **stack_b);
-void	pb(t_node **stack_a, t_node **stack_b);
-void	ra(t_node **stack_a);
-void	rb(t_node **stack_b);
-void	rr(t_node **stack_a, t_node **stack_b);
-void	rra(t_node **stack_a);
-void	rrb(t_node **stack_b);
-void	rrr(t_node **stack_a, t_node **stack_b);
+void	sa(t_node **stack_a, bool print);
+void	sb(t_node **stack_b, bool print);
+void	ss(t_node **stack_a, t_node **stack_b, bool print);
+void	pa(t_node **stack_a, t_node **stack_b, bool print);
+void	pb(t_node **stack_a, t_node **stack_b, bool print);
+void	ra(t_node **stack_a, bool print);
+void	rb(t_node **stack_b, bool print);
+void	rr(t_node **stack_a, t_node **stack_b, bool print);
+void	rra(t_node **stack_a, bool print);
+void	rrb(t_node **stack_b, bool print);
+void	rrr(t_node **stack_a, t_node **stack_b, bool print);
 
 // LIST UTILS
 t_node	*ft_lstnew(int nbr);

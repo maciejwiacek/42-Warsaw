@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:09:37 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:31:41 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:17:30 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	push(t_node **src_stack, t_node **dst_stack)
 	t_node	*tmp_next;
 	t_node	*tmp_prev;
 
+	if (ft_lstsize(*src_stack) < 1)
+		return ;
 	tmp = *src_stack;
 	if ((*src_stack)->next == *src_stack)
 	{
@@ -33,14 +35,16 @@ static void	push(t_node **src_stack, t_node **dst_stack)
 	ft_lstadd_front(dst_stack, tmp);
 }
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_node **stack_a, t_node **stack_b, bool print)
 {
 	push(stack_b, stack_a);
-	ft_printf("pa\n");
+	if (print)
+		ft_printf("pa\n");
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_node **stack_a, t_node **stack_b, bool print)
 {
-	push(stack_a, stack_b);
-	ft_printf("pb\n");
+	push(stack_a, stack_b);\
+	if (print)
+		ft_printf("pb\n");
 }

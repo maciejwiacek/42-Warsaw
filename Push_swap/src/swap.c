@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:00:25 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 17:04:44 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:13:58 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,31 @@ static void	swap(t_node **stack)
 {
 	int	tmp;
 
+	if (ft_lstsize(*stack) < 2)
+		return ;
 	tmp = (*stack)->number;
 	(*stack)->number = (*stack)->next->number;
 	(*stack)->next->number = tmp;
 }
 
-void	sa(t_node **stack_a)
+void	sa(t_node **stack_a, bool print)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
+	if (print)
+		ft_printf("sa\n");
 }
 
-void	sb(t_node **stack_b)
+void	sb(t_node **stack_b, bool print)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
+	if (print)
+		ft_printf("sb\n");
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b, bool print)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
+	if (print)
+		ft_printf("ss\n");
 }

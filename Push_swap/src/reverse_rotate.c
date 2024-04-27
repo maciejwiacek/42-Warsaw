@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:28:26 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/18 19:29:52 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:14:45 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,29 @@
 
 static void	reverse_rotate(t_node **stack)
 {
+	if (ft_lstsize(*stack) < 2)
+		return ;
 	*stack = (*stack)->prev;
 }
 
-void	rra(t_node **stack_a)
+void	rra(t_node **stack_a, bool print)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	if (print)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_node **stack_b)
+void	rrb(t_node **stack_b, bool print)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	if (print)
+		ft_printf("rrb\n");
 }
 
-void	rrr(t_node **stack_a, t_node **stack_b)
+void	rrr(t_node **stack_a, t_node **stack_b, bool print)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 }

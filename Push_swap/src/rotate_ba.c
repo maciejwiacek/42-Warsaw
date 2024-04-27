@@ -6,7 +6,7 @@
 /*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:49:13 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/04/22 18:02:37 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/04/26 17:49:50 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	rotate_to_top(t_node **stack, t_node *item)
 	if (i <= (len / 2))
 	{
 		while (*stack != item)
-			ra(stack);
+			ra(stack, true);
 	}
 	else
 	{
 		while (*stack != item)
-			rra(stack);
+			rra(stack, true);
 	}
 }
