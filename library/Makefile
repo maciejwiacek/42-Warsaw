@@ -1,5 +1,5 @@
 # PROJECT NAME #
-NAME =			libftprintf.a
+NAME =			library.a
 
 # DIRS #
 SRC_DIR =		srcs
@@ -23,15 +23,6 @@ LIBFT_FLS =		$(LIBFT_DIR)/ft_atoi.c \
 					$(LIBFT_DIR)/ft_isdigit.c \
 					$(LIBFT_DIR)/ft_isprint.c \
 					$(LIBFT_DIR)/ft_itoa.c \
-					$(LIBFT_DIR)/ft_lstadd_back.c \
-					$(LIBFT_DIR)/ft_lstadd_front.c \
-					$(LIBFT_DIR)/ft_lstclear.c \
-					$(LIBFT_DIR)/ft_lstdelone.c \
-					$(LIBFT_DIR)/ft_lstiter.c \
-					$(LIBFT_DIR)/ft_lstlast.c \
-					$(LIBFT_DIR)/ft_lstmap.c \
-					$(LIBFT_DIR)/ft_lstnew.c \
-					$(LIBFT_DIR)/ft_lstsize.c \
 					$(LIBFT_DIR)/ft_memchr.c \
 					$(LIBFT_DIR)/ft_memcmp.c \
 					$(LIBFT_DIR)/ft_memcpy.c \
